@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 void showBookDetails(BuildContext context, Items book, List<Items> favoriteBooks) {
   final bookInfo = book.volumeInfo;
+
   showDialog(
     context: context,
     builder: (context) {
@@ -39,7 +40,7 @@ void showBookDetails(BuildContext context, Items book, List<Items> favoriteBooks
                   style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  bookInfo?.authors?.join(', ') ?? '',
+                  bookInfo?.authors?.join(', ') ?? 'Autor@ no disponible.',
                   style: const TextStyle(color: Colors.white70),
                 ),
                 const SizedBox(height: 8.0),
@@ -50,7 +51,7 @@ void showBookDetails(BuildContext context, Items book, List<Items> favoriteBooks
                   style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  bookInfo?.publisher ?? '',
+                  bookInfo?.publisher ?? 'Editorial no disponible',
                   style: const TextStyle(color: Colors.white70),
                 ),
                 const SizedBox(height: 8.0),
@@ -61,7 +62,7 @@ void showBookDetails(BuildContext context, Items book, List<Items> favoriteBooks
                   style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  bookInfo?.publishedDate ?? '',
+                  bookInfo?.publishedDate ?? 'Fecha de publicación no disponible.',
                   style: const TextStyle(color: Colors.white70),
                 ),
                 const SizedBox(height: 8.0),
@@ -72,7 +73,7 @@ void showBookDetails(BuildContext context, Items book, List<Items> favoriteBooks
                   style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  bookInfo?.categories?.join(', ') ?? '',
+                  bookInfo?.categories?.join(', ') ?? 'Categorias no disponibles.',
                   style: const TextStyle(color: Colors.white70),
                 ),
                 const SizedBox(height: 8.0),
@@ -83,7 +84,18 @@ void showBookDetails(BuildContext context, Items book, List<Items> favoriteBooks
                   style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  bookInfo?.pageCount?.toString() ?? '',
+                  bookInfo?.pageCount?.toString() ?? 'Número de paginas no disponible',
+                  style: const TextStyle(color: Colors.white70),
+                ),
+                const SizedBox(height: 8.0),
+              ],
+              if (bookInfo?.averageRating != null) ...[
+                const Text(
+                  'Rating: ',
+                  style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  '${bookInfo?.averageRating} / 5 (${bookInfo?.ratingsCount ?? 0} calificaciones)',
                   style: const TextStyle(color: Colors.white70),
                 ),
                 const SizedBox(height: 8.0),
@@ -105,7 +117,7 @@ void showBookDetails(BuildContext context, Items book, List<Items> favoriteBooks
               favoriteBooks.add(book);
               Navigator.of(context).pop();
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('"${bookInfo?.title}" agregado a favoritos.',style: const TextStyle(color: Colors.yellow))),
+                SnackBar(content: Text('"${bookInfo?.title}" agregado a favoritos.', style: const TextStyle(color: Colors.yellow))),
               );
             },
             child: const Text('Agregar a Favoritos', style: TextStyle(color: Colors.yellow)),

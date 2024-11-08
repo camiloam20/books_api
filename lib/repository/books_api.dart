@@ -9,7 +9,7 @@ class BookApi{
     final response =
         await http.get(Uri.parse('https://www.googleapis.com/books/v1/volumes?q=$parameter'));
 
-    print("Resultado: ${response.body}");
+    //print("Resultado: ${response.body}");
 
     if (response.statusCode == 200){
       return ApiBooksResponse.fromJson(jsonDecode(response.body));
