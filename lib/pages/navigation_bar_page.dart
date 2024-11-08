@@ -26,8 +26,18 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[900],
       appBar: AppBar(
-        title: const Text("Mis Libros"),
+        backgroundColor: Colors.grey[850],
+        title: const Text(
+          "Mis Libros",
+          style: TextStyle(
+            color: Colors.yellow,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -35,21 +45,21 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.api),
-            label: "ApiBooks",
+            icon: Icon(Icons.my_library_books),
+            label: "Libros",
           ),
-
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
-            label: "Mis Favoritoss",
+            label: "Mis Favoritos",
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.yellow,
+        unselectedItemColor: Colors.white70,
+        backgroundColor: Colors.grey[850],
         onTap: _onItemTapped,
+        type: BottomNavigationBarType.fixed,
       ),
     );
   }
 }
-
