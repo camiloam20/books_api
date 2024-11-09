@@ -15,8 +15,6 @@ class _ApiBooksPageState extends State<ApiBooksPage> {
   final TextEditingController _parametro = TextEditingController(text: "flutter");
   List<Items> listBooks = <Items>[];
 
-  final List<Items> favoriteBooks = <Items>[];
-
   Future<void> _getBooks() async {
     ApiBooksResponse results = await _bookApi.getBook(_parametro.text);
 
@@ -81,7 +79,7 @@ class _ApiBooksPageState extends State<ApiBooksPage> {
               itemBuilder: (context, index) {
                 final book = listBooks[index].volumeInfo;
                 return GestureDetector(
-                  onTap: () => showBookDetails(context, listBooks[index], favoriteBooks),
+                  onTap: () => showBookDetails(context, apiBook: listBooks[index]),
                   child: Card(
                     color: Colors.grey[850],
                     margin: const EdgeInsets.all(8.0),
