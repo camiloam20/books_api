@@ -141,14 +141,3 @@ void _saveBookInFavorites(BuildContext context, Items book) {
   }
 }
 
-class ParametroProvider with ChangeNotifier {
-  TextEditingController _parametro = TextEditingController(text: "flutter");
-
-  TextEditingController get parametro => _parametro;
-
-  void updateParametro(String newValue) {
-    _parametro.text = newValue;
-    notifyListeners();
-  }
-}
-
