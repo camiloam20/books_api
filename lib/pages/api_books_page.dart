@@ -38,7 +38,7 @@ class _ApiBooksPageState extends State<ApiBooksPage> {
           const Padding(
             padding: EdgeInsets.all(16.0),
             child: Text(
-              'Busca un libro por título o autor, analizalos a detalle y añade un libro a tus favoritos!',
+              'Busca un libro por título o autor, revísalos a detalle y añade un libro a tus favoritos!',
               style: TextStyle(color: Colors.white70, fontSize: 18),
               textAlign: TextAlign.center,
             ),
